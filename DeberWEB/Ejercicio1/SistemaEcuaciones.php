@@ -1,11 +1,12 @@
 <?php
-declare(strict_types=1);
+declare(strict_types=1); // Modo estricto: los tipos de datos deben coincidir
 
-// Clase abstracta base que define la estructura de un sistema de ecuaciones
+// Clase base (abstracta), no se puede usar directamente
 abstract class SistemaEcuaciones {
-    // Método abstracto que debe calcular los resultados del sistema
+    
+    // Método obligatorio: cada clase hija debe definir cómo calcular
     abstract public function calcularResultado(array $ecuaciones): array;
 
-    // Método abstracto que debe validar si el sistema es consistente
+    // Método obligatorio: debe validar si las ecuaciones tienen formato correcto
     abstract public function validarConsistencia(array $ecuaciones): bool;
 }

@@ -2,7 +2,7 @@
 require_once "Matriz.php";
 require_once "Funciones.php";
 
-// Entrada por consola para dos matrices 2x2
+// Pide al usuario los datos de la primera matriz
 echo "Ingrese los elementos de la primera matriz (2x2):\n";
 $matriz1 = [];
 for ($i = 0; $i < 2; $i++) {
@@ -10,6 +10,7 @@ for ($i = 0; $i < 2; $i++) {
     $matriz1[$i] = array_map('floatval', explode(" ", trim(fgets(STDIN))));
 }
 
+// Pide la segunda matriz
 echo "Ingrese los elementos de la segunda matriz (2x2):\n";
 $matriz2 = [];
 for ($i = 0; $i < 2; $i++) {
@@ -17,21 +18,20 @@ for ($i = 0; $i < 2; $i++) {
     $matriz2[$i] = array_map('floatval', explode(" ", trim(fgets(STDIN))));
 }
 
-// Crear objeto
+// Crea un objeto de tipo Matriz con la primera
 $m = new Matriz($matriz1);
 
-// Multiplicación
+// Multiplica la primera por la segunda
 echo "\n== Multiplicación de matrices ==\n";
 $resMultiplicacion = $m->multiplicar($matriz2);
 imprimirMatriz($resMultiplicacion);
 
-// Inversa de la primera matriz
+// Calcula la inversa de la primera matriz
 echo "\n== Inversa de la primera matriz ==\n";
 $inversa = $m->inversa();
 imprimirMatriz($inversa);
 
-// Determinante
+// Calcula el determinante de la primera matriz
 echo "\n== Determinante de la primera matriz ==\n";
 $det = determinante($matriz1);
 echo "Determinante = $det\n";
-?>

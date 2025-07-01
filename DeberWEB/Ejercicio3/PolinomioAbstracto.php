@@ -1,20 +1,18 @@
 <?php
-// Clase abstracta que define la estructura base de cualquier polinomio
 abstract class PolinomioAbstracto {
-    protected array $terminos;
+    protected array $terminos; // Almacena los términos del polinomio (grado => coeficiente)
 
-    // Constructor que recibe un array asociativo donde la clave es el grado y el valor el coeficiente
     public function __construct(array $terminos) {
-        $this->terminos = $terminos;
+        $this->terminos = $terminos; // Guarda los términos recibidos
     }
 
-    // Método abstracto para evaluar el polinomio dado un valor de x
+    // Método abstracto: debe calcular el valor del polinomio dado x
     abstract public function evaluar(float $x): float;
 
-    // Método abstracto para obtener la derivada del polinomio
+    // Método abstracto: debe calcular la derivada
     abstract public function derivada(): array;
 
-    // Método accesor para obtener los términos del polinomio
+    // Devuelve los términos actuales del polinomio
     public function obtenerTerminos(): array {
         return $this->terminos;
     }
